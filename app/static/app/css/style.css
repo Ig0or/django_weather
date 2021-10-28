@@ -1,0 +1,75 @@
+body, h1, section, div, form, input, button, img, p, span {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    background: #D1E8E7;
+    border-radius: 5px;
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: mediumslateblue ;
+    padding: 20px;
+    text-align: center;
+}
+
+.div__form {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+.div__form form {
+    display: flex;
+}
+
+.div__form input {
+    padding: 8px;
+    border: 1px solid black;
+    font-family: monospace;
+}
+
+.div__form button {
+    border: 1px solid black;
+    border-left: none;
+    background: mediumslateblue;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.div__form button:hover {
+    background: #D1D1E8;
+    color: black;
+
+}
+
+.div__weather {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    max-width: 45%;
+    background: #DAE0F2;
+    border-radius: 5px;
+}
+
+.div__weather__img img{
+    width: 50px;
+    margin-right: 20px;
+}
+
+.div__weather__info {
+    font-family: monospace;
+    letter-spacing: 1px;
+}

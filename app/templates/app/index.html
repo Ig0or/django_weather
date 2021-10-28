@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <title>Consulta de Clima</title>
+</head>
+<body>
+    <header class="container">
+        <h1 class="title">What's the weather like?</h1>
+    </header>
+    <section class="container">
+        <div class="div__form">
+            <form method='post'>
+                <input type="text" placeholder="City Name">
+                <button type="submit">Add City</button>
+            </form>
+        </div>
+
+        <div class="div__weather">
+            <div class="div__weather__img">
+                <img src="../../static/app/img/brightness_low_black_24dp.svg" alt="">
+            </div>
+            <div class="div__weather__info">
+                <p>São Paulo</p>
+                <span>30°C - Overcast Clouds</span>
+                <p>Min: 18°C - Max: 29°C</p>
+            </div>
+        </div>
+
+                <div class="div__weather">
+            <div class="div__weather__img">
+                <img src="../../static/app/img/brightness_low_black_24dp.svg" alt="">
+            </div>
+            <div class="div__weather__info">
+                <p>São Paulo</p>
+                <span>30°C - Overcast Clouds</span>
+                <p>Min: 18°C - Max: 29°C</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
