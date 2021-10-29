@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
+{% load filtros %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link rel="fav icon" href="{% static 'app/img/clouds.svg' %}">
     <title>Consulta de Clima</title>
 </head>
 <body>
@@ -15,32 +17,34 @@
     <section class="container">
         <div class="div__form">
             <form method='post'>
-                <input type="text" placeholder="City Name">
+                {% csrf_token %}
+                <input type="text" placeholder="City Name" name="cidade">
                 <button type="submit">Add City</button>
             </form>
         </div>
 
+        {% for cidade in cidades %}
         <div class="div__weather">
             <div class="div__weather__img">
-                <img src="../../static/app/img/brightness_low_black_24dp.svg" alt="">
+                {% if cidade.weather.0.main == 'Clouds' %}
+                <img src="{% static 'app/img/clouds.svg' %}" alt="{{ cidade.weather.0.main }}">
+                {% elif cidade.weather.0.main == 'Clear' %}
+                <img src="{% static 'app/img/clear.svg' %}" alt="{{ cidade.weather.0.main }}">
+                {% elif cidade.weather.0.main == 'Rain' or cidade.weather.0.main == 'Thunderstorm' or cidade.weather.0.main == 'Drizzle' %}
+                <img src="{% static 'app/img/rain.svg' %}" alt="{{ cidade.weather.0.main }}">
+                {% else %}
+                <img src="{% static 'app/img/clouds.svg' %}" alt="{{ cidade.weather.0.main }}">
+                {% endif %}
             </div>
+            
             <div class="div__weather__info">
-                <p>São Paulo</p>
-                <span>30°C - Overcast Clouds</span>
-                <p>Min: 18°C - Max: 29°C</p>
+                <p>{{cidade.name}}</p>
+                <span>{{cidade.main.temp | converter }}°C - {{cidade.weather.0.description | title }}</span>
+                <p>Min: {{cidade.main.temp_min | converter }}°C - Max: {{cidade.main.temp_max | converter }}°C</p>
             </div>
         </div>
+        {% endfor %}
 
-                <div class="div__weather">
-            <div class="div__weather__img">
-                <img src="../../static/app/img/brightness_low_black_24dp.svg" alt="">
-            </div>
-            <div class="div__weather__info">
-                <p>São Paulo</p>
-                <span>30°C - Overcast Clouds</span>
-                <p>Min: 18°C - Max: 29°C</p>
-            </div>
-        </div>
     </section>
 </body>
 </html>
