@@ -4,15 +4,8 @@ body, h1, section, div, form, input, button, img, p, span {
     box-sizing: border-box;
 }
 
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
 header {
     background: #D1E8E7;
-    border-radius: 5px;
     font-family: monospace;
     text-transform: uppercase;
     letter-spacing: 2px;

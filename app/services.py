@@ -8,5 +8,3 @@ def consulta_api(cidade, key):
     if retorno.status_code == 200:
         tempo_cidade = retorno.json()
         return tempo_cidade
-    else:
-        return
