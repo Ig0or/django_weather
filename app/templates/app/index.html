@@ -1,50 +1,73 @@
 <!DOCTYPE html>
-{% load static %}
-{% load filtros %}
+{% load static %} {% load filtros %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-    <link rel="fav icon" href="{% static 'app/img/clouds.svg' %}">
-    <title>Consulta de Clima</title>
-</head>
-<body>
-    <header>
-        <h1 class="title">What's the weather like?</h1>
-    </header>
-    <section>
-        <div class="div__form">
-            <form method='post'>
-                {% csrf_token %}
-                <input type="text" placeholder="City Name" name="cidade">
-                <button type="submit">Add City</button>
-            </form>
-        </div>
-
-        {% for cidade in cidades %}
-        <div class="div__weather">
-            <div class="div__weather__img">
-                {% if cidade.weather.0.main == 'Clouds' %}
-                <img src="{% static 'app/img/clouds.svg' %}" alt="{{ cidade.weather.0.main }}">
-                {% elif cidade.weather.0.main == 'Clear' %}
-                <img src="{% static 'app/img/clear.svg' %}" alt="{{ cidade.weather.0.main }}">
-                {% elif cidade.weather.0.main == 'Rain' or cidade.weather.0.main == 'Thunderstorm' or cidade.weather.0.main == 'Drizzle' %}
-                <img src="{% static 'app/img/rain.svg' %}" alt="{{ cidade.weather.0.main }}">
-                {% else %}
-                <img src="{% static 'app/img/clouds.svg' %}" alt="{{ cidade.weather.0.main }}">
-                {% endif %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}" />
+        <link rel="fav icon" href="{% static 'app/img/clouds.svg' %}" />
+        <title>Consulta de Clima</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="title">What's the weather like?</h1>
+        </header>
+        <section>
+            <div class="div__form">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" placeholder="City Name" name="cidade" />
+                    <button type="submit">Add City</button>
+                </form>
+                <a href="{%url 'reset' %}">Reset Cities</a>
             </div>
-            
-            <div class="div__weather__info">
-                <p>{{cidade.name}}</p>
-                <span>{{cidade.main.temp | converter }}°C - {{cidade.weather.0.description | title }}</span>
-                <p>Min: {{cidade.main.temp_min | converter }}°C - Max: {{cidade.main.temp_max | converter }}°C</p>
-            </div>
-        </div>
-        {% endfor %}
 
-    </section>
-</body>
+            {% for cidade in cidades %}
+            <div class="div__weather">
+                <div class="div__weather__img">
+                    {% if cidade.weather.0.main == 'Clouds' %}
+                    <img
+                        src="{% static 'app/img/clouds.svg' %}"
+                        alt="{{ cidade.weather.0.main }}"
+                    />
+                    {% elif cidade.weather.0.main == 'Clear' %}
+                    <img
+                        src="{% static 'app/img/clear.svg' %}"
+                        alt="{{ cidade.weather.0.main }}"
+                    />
+                    {% elif cidade.weather.0.main == 'Rain' or cidade.weather.0.main == 'Thunderstorm' or cidade.weather.0.main == 'Drizzle' or cidade.weather.0.main == 'Snow' %}
+                    <img
+                        src="{% static 'app/img/rain.svg' %}"
+                        alt="{{ cidade.weather.0.main }}"
+                    />
+                    {% else %}
+                    <img
+                        src="{% static 'app/img/clouds.svg' %}"
+                        alt="{{ cidade.weather.0.main }}"
+                    />
+                    {% endif %}
+                </div>
+
+                <div class="div__weather__info">
+                    <p>{{cidade.name}}</p>
+                    <span
+                        >{{cidade.main.temp | converter }}°C -
+                        {{cidade.weather.0.description | title }}</span
+                    >
+                    <p>
+                        Min: {{cidade.main.temp_min | converter }}°C - Max:
+                        {{cidade.main.temp_max | converter }}°C
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </body>
 </html>

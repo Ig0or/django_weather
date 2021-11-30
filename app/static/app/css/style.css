@@ -1,33 +1,55 @@
-body, h1, section, div, form, input, button, img, p, span {
+body,
+h1,
+form,
+input,
+button,
+img,
+p,
+span {
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+* {
     box-sizing: border-box;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 header {
-    background: #D1E8E7;
-    font-family: monospace;
+    background: #d1e8e7;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: mediumslateblue ;
+    color: mediumslateblue;
     padding: 20px;
     text-align: center;
 }
 
 .div__form {
-    display: flex;
-    margin: 20px;
-    justify-content: center;
+    padding: 20px;
+    text-align: center;
 }
 
 .div__form form {
     display: flex;
+    justify-content: center;
 }
 
 .div__form input {
     padding: 8px;
     border: 1px solid black;
-    font-family: monospace;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+.div__form input:focus {
+    outline: none;
 }
 
 .div__form button {
@@ -35,34 +57,45 @@ header {
     border-left: none;
     background: mediumslateblue;
     color: #fff;
-    font-family: monospace;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
     font-weight: bold;
     padding: 8px;
     cursor: pointer;
 }
 
 .div__form button:hover {
-    background: #D1D1E8;
-    color: black;
+    opacity: 0.8;
+}
 
+.div__form a {
+    padding: 5px;
+    width: 245px;
+    display: inline-block;
+    border: 1px solid black;
+    border-top: none;
+    background: mediumslateblue;
+    color: #fff;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.div__form a:hover {
+    opacity: 0.8;
 }
 
 .div__weather {
     margin: 30px auto;
     display: flex;
-    justify-content: center;
+    align-items: center;
     padding: 20px;
-    max-width: 45%;
-    background: #DAE0F2;
+    max-width: 500px;
+    background: #dae0f2;
     border-radius: 5px;
 }
 
-.div__weather__img img{
+.div__weather__img img {
     width: 50px;
-    margin-right: 20px;
-}
-
-.div__weather__info {
-    font-family: monospace;
-    letter-spacing: 1px;
+    margin: 0 35px;
 }

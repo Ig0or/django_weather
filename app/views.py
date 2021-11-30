@@ -18,3 +18,8 @@ def index(request):
             return redirect('index')
     return render(request, 'app/index.html', {'cidades': cidades})
 
+def reset(request):
+    global cidades
+    cidades = []
+    return redirect("index")
+
