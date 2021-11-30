@@ -1,7 +1,7 @@
 # Django Weather
 Projeto de estudo feito em Python utilizando o Framework Django e a API de clima do OpenWeather.
 
-![](https://github.com/Ig0or/django_weather/blob/main/app/static/app/img/img.png)
+![](https://github.com/Ig0or/weather_django/blob/main/app/static/app/img/preview.png)
 
 ## Rodando a Aplicação
 Baixe o repositório e crie um novo ambiente virtual -> `virtualenv venv`
